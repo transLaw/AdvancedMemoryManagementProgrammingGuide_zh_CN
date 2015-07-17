@@ -13,6 +13,10 @@ Objective-C provides two methods of application memory management.
 * In the method described in this guide, referred to as “manual retain-release” or MRR, you explicitly manage memory by keeping track of objects you own. This is implemented using a model, known as reference counting, that the Foundation class NSObject provides in conjunction with the runtime environment.
 * In Automatic Reference Counting, or ARC, the system uses the same reference counting system as MRR, but it inserts the appropriate memory management method calls for you at compile-time. You are strongly encouraged to use ARC for new projects. If you use ARC, there is typically no need to understand the underlying implementation described in this document, although it may in some situations be helpful. For more about ARC, see [Transitioning to ARC Release Notes][1].
 
+Objective-C提供了两种应用内内存管理方式。
+* 第一种方式称为“手动持有释放”或简称MRR，你自己通过跟踪对象来明确管理内存。这种方式是通过一个结合了运行时环境并由Foundation类NSObject提供的模型来实现的，即引用计数(reference counting)。
+* 在自动引用计数(ARC)中，系统使用了和MRR相同的引用计数系统，但是它在编译期间为你插入了适宜的内存管理方法调用代码。强烈鼓励在新项目中使用ARC。如果你采用了ARC的方式管理内存，那么一般来说没有太大必要理解本文中所描述的底层实现方式，但在有些情况下会有所帮助。更多关于ARC的内容，请参见[迁移到ARC发布纪录][1]。
+
 ##Good Practices Prevent Memory-Related Problems
 There are two main kinds of problem that result from incorrect memory management:
 
