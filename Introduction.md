@@ -11,7 +11,7 @@ Although memory management is typically considered at the level of an individual
 Objective-C provides two methods of application memory management.
 
 * In the method described in this guide, referred to as “manual retain-release” or MRR, you explicitly manage memory by keeping track of objects you own. This is implemented using a model, known as reference counting, that the Foundation class NSObject provides in conjunction with the runtime environment.
-* In Automatic Reference Counting, or ARC, the system uses the same reference counting system as MRR, but it inserts the appropriate memory management method calls for you at compile-time. You are strongly encouraged to use ARC for new projects. If you use ARC, there is typically no need to understand the underlying implementation described in this document, although it may in some situations be helpful. For more about ARC, see Transitioning to ARC Release Notes.
+* In Automatic Reference Counting, or ARC, the system uses the same reference counting system as MRR, but it inserts the appropriate memory management method calls for you at compile-time. You are strongly encouraged to use ARC for new projects. If you use ARC, there is typically no need to understand the underlying implementation described in this document, although it may in some situations be helpful. For more about ARC, see [Transitioning to ARC Release Notes][1].
 
 ##Good Practices Prevent Memory-Related Problems
 There are two main kinds of problem that result from incorrect memory management:
@@ -25,20 +25,28 @@ Thinking about memory management from the perspective of reference counting, how
 
 Cocoa uses a straightforward naming convention to indicate when you own an object returned by a method.
 
-See Memory Management Policy.
+See [Memory Management Policy][2].
 
 Although the basic policy is straightforward, there are some practical steps you can take to make managing memory easier, and to help to ensure your program remains reliable and robust while at the same time minimizing its resource requirements.
 
-See Practical Memory Management.
+See [Practical Memory Management][3].
 
 Autorelease pool blocks provide a mechanism whereby you can send an object a “deferred” release message. This is useful in situations where you want to relinquish ownership of an object, but want to avoid the possibility of it being deallocated immediately (such as when you return an object from a method). There are occasions when you might use your own autorelease pool blocks.
 
-See Using Autorelease Pool Blocks.
+See [Using Autorelease Pool Blocks][4].
 
 ##Use Analysis Tools to Debug Memory Problems
-To identify problems with your code at compile time, you can use the Clang Static Analyzer that is built into Xcode.
+To identify problems with your code at compile time, you can [use the Clang Static Analyzer][5] that is built into Xcode.
 
 If memory management problems do nevertheless arise, there are other tools and techniques you can use to identify and diagnose the issues.
 
-* Many of the tools and techniques are described in Technical Note TN2239, iOS Debugging Magic, in particular the use of NSZombie to help find over-released object.
-* You can use Instruments to track reference counting events and look for memory leaks. See Collecting Data on Your App.
+* Many of the tools and techniques are described in Technical Note TN2239, [iOS Debugging Magic][6], in particular the use of NSZombie to help find over-released object.
+* You can use Instruments to track reference counting events and look for memory leaks. See [Collecting Data on Your App][7].
+
+[1]:https://developer.apple.com/library/ios/releasenotes/ObjectiveC/RN-TransitioningToARC/Introduction/Introduction.html#//apple_ref/doc/uid/TP40011226
+[2]:./MemoryManagementPolicy.md
+[3]:./PracticalMemoryManagement.md
+[4]:./UsingAutoreleasePoolBlocks.md
+[5]:https://developer.apple.com/library/ios/recipes/xcode_help-source_editor/chapters/Analyze.html#//apple_ref/doc/uid/TP40009975-CH4
+[6]:https://developer.apple.com/library/ios/technotes/tn2239/_index.html#//apple_ref/doc/uid/DTS40010638
+[7]:https://developer.apple.com/library/ios/documentation/DeveloperTools/Conceptual/InstrumentsUserGuide/GatheringDatafortheFirstTime/GatheringDatafortheFirstTime.html#//apple_ref/doc/uid/TP40004652-CH5
